@@ -13,23 +13,7 @@
 
 <body onload="Cargar()">
     <header>
-        <nav>
-
-            <div id="logo">
-                <a href="{% url 'home' %}">
-                    <img src="static/img/icon2.png" alt="">
-                </a>
-            </div>
-            <a class="nav" href="{% url 'celulares' %}">Celulares</a>
-            <a class="nav" href="templates/computadores.html">computadores</a>
-            <a class="nav" href="templates/accesorios.html">Accesorios</a>
-            <a class="nav" href="templates/quienessomos.html">Contactanos</a>
-           <div class="logos">
-            <a class="logosesion" href="templates/iniciarsesion.html"> <img src="static/img/cat_profile_80px.png" alt=""></a>
-            <a class="logocarrito" href="templates/carritos.html"  > <img src="static/img/shopping_80px.png" alt=""></a>
-           </div>
-            </div>
-        </nav>
+        {% include 'nav.html' %}
         
         <div>
             <style>

@@ -1,22 +1,13 @@
+{% load static %}
+
 <!DOCTYPE html>
 
 <html lang="es">
-<nav>
-
-
-    <a class="nav" href="celulares.html">Celulares</a>
-    <a class="nav" href="computadores.html">computadores</a>
-    <a class="nav" href="accesorios.html">Accesorios</a>
-    <a class="nav" href="quienessomos.html">Contactanos</a>
-    <div class="logos">
-        <a class="logosesion" href="iniciarsesion.html"> <img src="cat_profile_80px.png" alt=""></a>
-        <a class="logocarrito" href="carritos.html"> <img src="shopping_80px.png" alt=""></a>
-    </div>
-    </div>
-</nav>
+    {% include 'nav.html' %}
 
 <head>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
+    <script src="static/js/FuncionUsd.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesion Blaze Cats</title>
@@ -40,7 +31,7 @@
             <button type="submit" id="btn-enviar" class="btn btn-primary btn-block btn-large">Iniciar sesion.</button>
             
         </form>
-        <form method="post" action="Registro.html">
+        <form method="post" action="{% url 'registro' %}">
             <button type="register" class="btn btn-secondary btn-block btn-large">¿No tienes una cuenta?</button>
         </form>
         <p class="warnings" id="warnings"></p>

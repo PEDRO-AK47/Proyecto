@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,28 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blaze cats</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
+    <script src="static/js/FuncionUsd.js"></script>
 </head>
 
 <body>
     <header>
-        <nav>
-
-            <div id="logo">
-                <a href="blaze cats.html">
-                    <img src="icon2.png" alt="">
-                </a>
-            </div>
-            <a class="nav" href="celulares.html">Celulares</a>
-            <a class="nav" href="computadores.html">computadores</a>
-            <a class="nav" href="accesorios.html">Accesorios</a>
-            <a class="nav" href="quienessomos.html">Contactanos</a>
-            <div class="logos">
-                <a class="logosesion" href="iniciarsesion.html"> <img src="cat_profile_80px.png" alt=""></a>
-                <a class="logocarrito" href="carritos.html"> <img src="shopping_80px.png" alt=""></a>
-            </div>
-            </div>
-        </nav>
+        {% include 'nav.html' %}
 
             <h1 class="cajatitulo item2">Formulario de contacto <img src="" alt="">
 
