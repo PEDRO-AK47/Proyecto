@@ -13,5 +13,6 @@ urlpatterns = [
     path('quienessomos', quienessomos, name="quienessomos"),
     path('registro', registro, name="registro"),
     path('accesorios', accesorios, name="accesorios"),
+    path('productos', productos, name="productos"),
 
 ]

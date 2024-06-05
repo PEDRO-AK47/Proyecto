@@ -1,5 +1,15 @@
 from django.shortcuts import render
 
+from .models import Producto
+
+def productos(request):
+    productos = Producto.objects.all()
+    context={"productos":productos}
+    return render (request,'productos.html',context)
+
+
+
+
 def home(request):
     context={}
     return render(request, 'blaze cats.html', context)
