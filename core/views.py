@@ -28,7 +28,7 @@ def carritos(request):
 def computadores(request):
     context={}
     return render(request, 'computadores.html', context)
-def iniciarsesion(request):
+def login(request):
     context={}
     return render(request, 'iniciarsesion.html', context)
 def quienessomos(request):
@@ -36,7 +36,7 @@ def quienessomos(request):
     return render(request, 'quienessomos.html', context)
 def registro(request):
     context={}
-    return render(request, 'registro.html', context)
+    return render(request, 'Registro.html', context)
 
 def addToCar(request, id):
     carrito = request.session.get("carrito", [])

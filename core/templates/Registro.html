@@ -20,6 +20,7 @@
         </a>
         <h1>Registrar Nuevo Usuario</h1>
         <form method="post" id="form" action="iniciarsesion.html">
+            {% csrf_token %}
             <input type="text" name="Nombre" placeholder="Nombre " required/>
 
             <input type="text" name="Apellido" placeholder="Apellido" required/>

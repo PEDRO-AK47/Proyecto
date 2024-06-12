@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 
 <html lang="es">
-    {% include 'nav.html' %}
+{% include 'nav.html' %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <script src="static/js/FuncionUsd.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,17 +21,15 @@
             <img src="icon2.png" alt="">
         </a>
         <h1>Acceder</h1>
-        <form method="post" id="form" action="blaze cats.html">
-            <input type="text" name="" id="name" placeholder="Nombre de Usuario" />
+        <form method="post" id="form" action="">
+            {% csrf_token %}
+            {{form}}
 
-            <input type="text" name="" id="email" name="" placeholder="Correo electronico" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Iniciar sesion.</button>
 
-            <input type="password" name="" id="password" placeholder="Contraseña" />
-
-            <button type="submit" id="btn-enviar" class="btn btn-primary btn-block btn-large">Iniciar sesion.</button>
-            
         </form>
-        <form method="post" action="{% url 'registro' %}">
+        <form method="post" action="{% url 'Registro' %}">
+            {% csrf_token %}
             <button type="register" class="btn btn-secondary btn-block btn-large">¿No tienes una cuenta?</button>
         </form>
         <p class="warnings" id="warnings"></p>
