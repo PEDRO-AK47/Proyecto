@@ -1,19 +1,28 @@
 
+{% load static %}
 <nav>
-
+    
     <div id="logo">
         <a href="{% url 'home' %}">
-            <img src="static/img/icon2.png" alt="">
+            <img src="{% static 'img/icon2.png' %}" alt="">
         </a>
     </div>
     <a class="nav" href="{% url 'celulares' %}">Celulares</a>
-    <a class="nav" href="{% url 'computadores' %}">computadores</a>
+    <a class="nav" href="{% url 'computadores' %}">Computadores</a>
     <a class="nav" href="{% url 'accesorios' %}">Accesorios</a>
-    <a class="nav" href="{% url 'quienessomos' %}">Contactanos</a>
-   <div class="logos">
+    <a class="nav" href="{% url 'quienessomos' %}">Contáctanos</a>
+    <div class="logos">
+        {% if user.is_authenticated %}
+        <p class ="saludo">Hola, {{ user.username }}!</p>
+        <br>
+        <a href="{% url 'logout' %}">Cerrar sesión</a>
     
-    <a class="logosesion" href=""> <img src="static/img/cat_profile_80px.png" alt=""></a>
-    <a class="logocarrito" href="{% url 'carritos' %}"  > <img src="static/img/shopping_80px.png" alt=""></a>
-   </div>
+        {% else %}
+        <a href="{% url 'login' %}"><img src="{% static 'img/cat_profile_80px.png' %}" alt=""></a>
+        {% endif %}
+        
+        <a class="logocarrito" href="{% url 'carritos' %}">
+            <img src="{% static '/img/shopping_80px.png' %}" alt="">
+        </a>
     </div>
 </nav>

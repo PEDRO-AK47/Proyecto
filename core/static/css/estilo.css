@@ -40,7 +40,9 @@ nav {
    
 
 }
-
+.saludo{
+    color: #ffffff;
+}
 
 #logo {
     background-color: rgb(255, 255, 255);
@@ -53,7 +55,9 @@ nav {
     
 
 }
-
+.saludo{
+    color: white;
+}
 #logo>a>img {
 
     height: 6vh;

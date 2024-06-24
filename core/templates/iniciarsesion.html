@@ -3,34 +3,30 @@
 <!DOCTYPE html>
 
 <html lang="es">
-{% include 'nav.html' %}
+
 
 <head>
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-    <script src="static/js/FuncionUsd.js"></script>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesion Blaze Cats</title>
 
 </head>
 
 <body class="sesion">
-
+    <header>{% include 'nav.html' %}</header>
     <div class="login form">
-        <a class="logo" href="blaze cats.html">
-            <img src="icon2.png" alt="">
-        </a>
+
         <h1>Acceder</h1>
-        <form method="post" id="form" action="">
+        <form method="post" id="form" >
             {% csrf_token %}
-            {{form}}
+            {{ form.as_p }}
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Iniciar sesion.</button>
 
         </form>
-        <form method="post" action="{% url 'Registro' %}">
+        <form method="post" action="{% url 'registro' %}">
             {% csrf_token %}
-            <button type="register" class="btn btn-secondary btn-block btn-large">¿No tienes una cuenta?</button>
+            <a href="{% url 'registro' %}">Registrarse</a>
         </form>
         <p class="warnings" id="warnings"></p>
     </div>

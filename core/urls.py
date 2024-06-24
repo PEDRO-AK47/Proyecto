@@ -1,6 +1,9 @@
-from .views import *
+from django.contrib import admin
 from django.urls import path
-from django.contrib.auth.views import LoginView
+from .views import *
+from . import views
+from core.views import *
+from .views import logout_view
 
 
 urlpatterns = [
@@ -10,8 +13,9 @@ urlpatterns = [
     path('carritos', carritos, name="carritos"),
     path('celulares', celulares, name="celulares"),
     path('computadores', computadores, name="computadores"),
-    path('login', LoginView.as_view(Template_name='core/iniciarsesion.html'), name="login"),
+    path('login_user', login_user, name="login_user"),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('registro/', registro, name='registro'),
     path('quienessomos', quienessomos, name="quienessomos"),
-    path('registro', registro, name="registro"),
-    path('addToCar/<id>', addToCar, name="addToCar"),
-]
+    path('addToCar/<int:id>/', addToCar, name="addToCar")]

@@ -19,23 +19,18 @@
             <img src="icon2.png" alt="">
         </a>
         <h1>Registrar Nuevo Usuario</h1>
-        <form method="post" id="form" action="iniciarsesion.html">
+        <form method="post" id="form" action="{% url 'registro' %}">
             {% csrf_token %}
-            <input type="text" name="Nombre" placeholder="Nombre " required/>
-
-            <input type="text" name="Apellido" placeholder="Apellido" required/>
+            <input type="text" name="username" id="name" placeholder="Nombre de Usuario" />
 
 
-            <input type="text" name="" id="name" placeholder="Nombre de Usuario" />
+            <input type="text" name="email" id="email" name="" placeholder="Correo electronico" />
 
 
-            <input type="text" name="" id="email" name="" placeholder="Correo electronico" />
+            <input type="password" name="password" id="password" placeholder="Contraseña" />
 
 
-            <input type="password" name="" id="password" placeholder="Contraseña" />
-
-
-            <input type="password" name="" id="password2" placeholder="Confirme la Contraseña" />
+            <input type="password" name="password2" id="password2" placeholder="Confirme la Contraseña" />
 
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Registrar.</button>
