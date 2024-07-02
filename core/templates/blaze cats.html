@@ -194,70 +194,25 @@
 
     </div>
 </div>
+
 <div class="container-items">
-    <DIV class="item">
-        <figure>
-            <img src="https://falabella.scene7.com/is/image/Falabella/16737961_1?wid=800&hei=800&qlt=70" alt="">
+    {% for producto in celulares %}
 
-
-        </figure>
+    <section class="item">
+        <img src="{{producto.imagen}}" alt="">
         <div class="info-producto">
-            <h2 class="info">Samsung A24  </h2>
-            <p class="precio">$125.000</p>
-            <p class="button_slide slide_right">AÑADIR AL CARRITO</p>
-
+            <h2 class="info">{{producto.nombre_p}} </h2>
+            <p class="stock"> Cantidad: {{producto.stock}}</p>
+            <p class="precio">{{producto.precio}}</p>            
+           <a href="{% url 'addtocar' producto.id_producto %}" class="button_slide slide_right">agregar producto</a>
         </div>
 
 
-    </DIV>
-    <DIV class="item">
-        <figure>
-            <img src="galaxy a.jpg" alt="" class="imagen">
-
-
-        </figure>
-        <div class="info-producto">
-            <h2 class="info">Samsung S22</h2>
-            <p class="precio">$155.000</p>
-            <p class="button_slide slide_right">AÑADIR AL CARRITO</p>
-
-        </div>
-
-
-    </DIV>
-    <DIV class="item">
-        <figure>
-            <img src="https://agenciaswayonline.com/wp-content/uploads/2023/06/Celular-Samsung-Galaxy-A24-verde.jpg"
-                alt="">
-
-
-        </figure>
-        <div class="info-producto">
-            <h2 class="info">Samsung S22 64GB </h2>
-            <p class="precio">$150.000</p>
-            <p class="button_slide slide_right">AÑADIR AL CARRITO</p>
-
-        </div>
-
-
-    </DIV>
-    <DIV class="item">
-        <figure>
-            <img src="https://agenciaswayonline.com/wp-content/uploads/2023/06/Celular-Samsung-Galaxy-A24-verde.jpg"
-                alt="">
-
-
-        </figure>
-        <div class="info-producto">
-            <h2 class="info">Samsung S22 128Gb </h2>
-            <p class="precio">$205.000</p>
-            <p class="button_slide slide_right">AÑADIR AL CARRITO</p>
-
-        </div>
-
-
-    </DIV>
+    </section>
+    {% endfor %}
 </div>
+
+
 
 <nav class="info2">
     <div>Bienvenido</div>

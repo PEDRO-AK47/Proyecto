@@ -8,15 +8,38 @@ from django.contrib.auth import logout
 from django.contrib import messages
 
 
+def comprar(request):
+    carrito = request.session.get("carrito",[])
+    total = 0
+    for item in carrito: 
+        total += item[5]
+    venta = venta()
+    venta.cliente = request.User
+    venta.total = total
+    venta.save()
+    for item in carrito:
+        detalle = detalle()
+        detalle.producto = Producto.objects.get(id_producto =item[0])
+        detalle.precio = item[3]
+        detalle.cantidad = item[4]
+        detalle.venta = venta
+        detalle.save()
+
+    return redirect(to="carrito")
+
+
+def carrito(request):
+    return render(request, 'carritos.html', {"carrito":request.session.get("carrito",[])})
+
 
 def productos(request):
-    productos = Producto.objects.all()
+    Producto = Producto.objects.all()
     context={"productos":productos}
     return render (request,'productos.html',context)
 
 def home(request):
-    context={}
-    return render(request, 'blaze cats.html', context)
+    celulares = Producto.objects.all()
+    return render(request, 'blaze cats.html', {'celulares':celulares, "carrito":request.session.get("carrito",[])})
 
 def celulares(request):
     context={}
@@ -25,9 +48,6 @@ def accesorios(request):
     context={}
     return render(request, 'accesorios.html', context)
 
-def carritos(request):
-    context={}
-    return render(request, 'carritos.html', context)
 def computadores(request):
     context={}
     return render(request, 'computadores.html', context)
@@ -70,21 +90,40 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
-def addToCar(request, id):
+
+def dropitem(request, id_producto):
     carrito = request.session.get("carrito", [])
-    producto = Producto.objects.get(id=id)
     for item in carrito:
-        if item["id"] == id:
-            item["cantidad"] += 1
-            item["subtotal"] = item["cantidad"] * item["precio"]
+        if item[0] == id_producto:
+            if item[4] > 1:
+
+                item[4] -= 1
+                item[5] = item[3] * item[4]
+                break
+            else:
+                carrito.remove(item)
+    request.session["carrito"] = carrito    
+    return redirect(to="carrito")
+
+
+
+
+def addtocar(request, id_producto):
+    producto = Producto.objects.get(id_producto=id_producto)
+    carrito = request.session.get("carrito", [])
+    for item in carrito:
+        if item[0] == id_producto:
+            item[4] += 1
+            item[5] = item[3] * item[4]
             break
-    else:
-            
-        carrito.append({"id":id, "nombre" :producto.nombre, "imagen":producto.imagen,
-        "precio":producto.precio, "cantidad":1, "subtotal":producto.precio})
-    print(carrito)
-    request.session["carrito"] = carrito
+    else:            
+        carrito.append([id_producto,producto.info, producto.imagen, producto.precio,1,producto.precio])
+    request.session["carrito"] = carrito    
+    return redirect(to="home")
+
+def limpiar(request):
     request.session.flush()
-    return redirect(to= "home")
+    return redirect(to="home")
+    
     
 

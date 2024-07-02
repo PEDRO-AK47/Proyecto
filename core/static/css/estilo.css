@@ -348,7 +348,7 @@ input:focus {
     justify-items:center;
     border-radius: 10px;
     align-items: center;
-    flex-grow: 1;
+    
 }
 
 
@@ -403,7 +403,7 @@ input:focus {
 }
 
 .button_slide {
-    color: #FFF;
+    color: #000000;
     border: 2px solid rgb(40, 170, 202);
     border-radius: 0px;
     padding: 18px 36px;
@@ -761,4 +761,46 @@ input:focus {
     padding-top: 20px;
 }
 
+#form-login p label {
+    color: #0b6a6d;
+    display: block !important;
+    width: 50% !important;
+}
 
+.button_slide>a {
+
+    color: #000000;
+}
+
+.tittle-carrito{
+    display: flex;
+    justify-content: first baseline;
+    padding: 30px;
+    margin: 2px;
+    border: 1px solid #000000;
+}
+
+table{
+    width: 90%;
+    text-align: center;
+}
+
+thead{
+    background-color: #0b6a6d;
+    color: white;
+    height: 30px;
+    text-align: center;
+}
+
+th{
+    padding: 5px;
+    text-align: center;
+}
+
+.a-cat{
+    color: red;
+}
+
+.catalogo{
+    align-items: center;
+}

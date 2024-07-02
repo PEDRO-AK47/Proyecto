@@ -16,17 +16,19 @@
     <header>{% include 'nav.html' %}</header>
     <div class="login form">
 
-        <h1>Acceder</h1>
-        <form method="post" id="form" >
+        
+        <br>
+        <form method="post" id="form-login" >
+            <h1>Iniciar Sesión</h1>
             {% csrf_token %}
             {{ form.as_p }}
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Iniciar sesion.</button>
 
         </form>
-        <form method="post" action="{% url 'registro' %}">
+        <form method="post" id="form-register"  action="{% url 'registro' %}">
             {% csrf_token %}
-            <a href="{% url 'registro' %}">Registrarse</a>
+            <button href="{% url 'registro' %}"   class="btn btn-secundary btn-block btn-large">Registrarse</button>
         </form>
         <p class="warnings" id="warnings"></p>
     </div>

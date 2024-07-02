@@ -10,7 +10,7 @@ urlpatterns = [
     path('', home, name="home"),
     path('accesorios', accesorios, name="accesorios"),
     path('productos', productos, name="productos"),
-    path('carritos', carritos, name="carritos"),
+    path('carrito', carrito, name="carrito"),
     path('celulares', celulares, name="celulares"),
     path('computadores', computadores, name="computadores"),
     path('login_user', login_user, name="login_user"),
@@ -18,4 +18,8 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('registro/', registro, name='registro'),
     path('quienessomos', quienessomos, name="quienessomos"),
-    path('addToCar/<int:id>/', addToCar, name="addToCar")]
+    path('addtocar/<id_producto>/', addtocar, name="addtocar"),
+    path('dropitem/<id_producto>/', dropitem, name="dropitem"),
+    path('limpiar', limpiar),
+    path('comprar', comprar, name="comprar")]
+ 
