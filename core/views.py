@@ -6,7 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib import messages
-
+from .forms import *
 
 def comprar(request):
     carrito = request.session.get("carrito",[])
@@ -55,8 +55,14 @@ def quienessomos(request):
     context={}
     return render(request, 'quienessomos.html', context)
 def registro(request):
-    context={}
-    return render(request, 'Registro.html', context)
+    if request.method == "POST":
+        registro = Registro(request.POST)
+        if registro.is_valid():
+            registro.save()
+            return redirect(to="login_view")
+        else:
+            registro = Registro()
+    return render(request, 'Registro.html', {'form':registro})
 def login_user(request):
     context={}
     return render(request, 'login.html',context )
@@ -124,6 +130,6 @@ def addtocar(request, id_producto):
 def limpiar(request):
     request.session.flush()
     return redirect(to="home")
-    
+
     
 
