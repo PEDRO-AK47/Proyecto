@@ -55,6 +55,10 @@
 </body>
 {%  if not carrito %}
  <h2 style="width:100%; text-align: center; padding: 15px; ">Tu carrito esta vacio my friend!.</h2>
+ {% else %}
+  <div class="b-comprar">
+    <a  href="{% url 'comprar' %}">Comprar</a>
+  </div> 
  {%endif%}
 </html>
 {%endblock%}

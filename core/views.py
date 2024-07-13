@@ -1,32 +1,32 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView
-from .models import  Producto
+from .models import  *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib import messages
 from .forms import *
+from .admin import *
 
 def comprar(request):
     carrito = request.session.get("carrito",[])
     total = 0
     for item in carrito: 
         total += item[5]
-    venta = venta()
-    venta.cliente = request.User
+    venta = Venta()
+    venta.cliente = request.user
     venta.total = total
     venta.save()
-    for item in carrito:
-        detalle = detalle()
-        detalle.producto = Producto.objects.get(id_producto =item[0])
-        detalle.precio = item[3]
-        detalle.cantidad = item[4]
-        detalle.venta = venta
-        detalle.save()
-
+    for item in carrito: 
+      detalle = Detalle()
+      detalle.producto = Producto.objects.get(id_producto=item[0])
+      detalle.precio = item[3]
+      detalle.cantidad = item[4]
+      detalle.venta = venta
+      detalle.save()
+      request.session["carrito"] = []
     return redirect(to="carrito")
-
 
 def carrito(request):
     return render(request, 'carritos.html', {"carrito":request.session.get("carrito",[])})

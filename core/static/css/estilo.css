@@ -141,7 +141,7 @@ nav>a:hover {
 
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 
 .btn {
     display: inline-block;
@@ -799,8 +799,11 @@ th{
 
 .a-cat{
     color: red;
+    width: 95%;
+
 }
 
 .catalogo{
     align-items: center;
 }
+
