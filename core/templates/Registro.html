@@ -6,7 +6,7 @@
 
 <head>
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
-    <script src="static/js/FuncionUsd.js"></script>
+    <script src="{% static 'js/Validaciones2.js' %}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesion Blaze Cats</title>
@@ -15,31 +15,18 @@
 <body class="sesion">
 
     <div class="login">
-        <a class="logo" href="blaze cats.html">
-            <img src="icon2.png" alt="">
+        <a class="logo" href="{% url 'home' %}">
+            <img src="{% static 'img/icon2.png' %}" alt="">
         </a>
         <h1>Registrar Nuevo Usuario</h1>
         <form method="post" id="form" action="">
             {% csrf_token %}
-            <input type="text" name="username" id="username" placeholder="Nombre de Usuario" />
-
-
-            <input type="text" name="email" id="email" name="" placeholder="Correo electronico" />
-
-
-            <input type="password" name="password" id="password" placeholder="Contraseña" />
-
-
-            <input type="password" name="password2" id="password2" placeholder="Confirme la Contraseña" />
-
-
-            <button type="submit"    class="btn btn-primary btn-block btn-large">Registrar.</button>
-
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block btn-large">Registrar</button>
         </form>
         <p class="warnings" id="warnings"></p>
     </div>
 
-    <script src="validaciones2.js"></script>
 </body>
 
 </html>

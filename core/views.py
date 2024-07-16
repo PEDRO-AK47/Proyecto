@@ -56,16 +56,14 @@ def quienessomos(request):
     return render(request, 'quienessomos.html', context)
 def registro(request):
     if request.method == "POST":
-        registro = Registro(request.POST)
-        if registro.is_valid():
-            registro.save()
-            return redirect(to="login_view")
-        else:
-            registro = Registro()
-    return render(request, 'Registro.html', {'form':registro})
-def login_user(request):
-    context={}
-    return render(request, 'login.html',context )
+        form = Registro(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='login')
+    else:
+        form = Registro()
+    return render(request, 'Registro.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':

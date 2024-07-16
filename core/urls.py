@@ -13,7 +13,6 @@ urlpatterns = [
     path('carrito', carrito, name="carrito"),
     path('celulares', celulares, name="celulares"),
     path('computadores', computadores, name="computadores"),
-    path('login_user', login_user, name="login_user"),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('registro/', registro, name='registro'),

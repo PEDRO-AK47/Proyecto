@@ -806,4 +806,10 @@ th{
 .catalogo{
     align-items: center;
 }
+.helptext{
+    display: none;
 
+}
+li{
+    display: none;
+}
