@@ -813,3 +813,18 @@ th{
 li{
     display: none;
 }
+.Botoncompra:link,
+.Botoncompra:visited,
+.Botoncompra:focus {
+  background: rgb(218, 241, 246);
+}
+
+.Botoncompra:hover {
+  background: rgb(11, 158, 250);
+  color: #f9f9f9;
+}
+
+.Botoncompra:active {
+  background: rgb(255, 85, 0);
+  color: rgb(255, 255, 255);
+}

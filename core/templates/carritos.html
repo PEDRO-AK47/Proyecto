@@ -2,63 +2,66 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blaze cats</title>
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}" >
-        <script src="static/js/FuncionUsd.js"></script>
-        
-    </head>
-    
-    <body>
-        <header>
-            {% include 'nav.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            
-    {% block content %}
-    <div class="tittle-carrito"><h1 >CARRITO DE COMPRAS</h1></div>
-            <table class="catalogo">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Detalle</th>
-                        <th>Imagen</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in carrito%}
-                        <tr>
-                            <td>{{item.0}}</td>
-                            <td>{{item.1}}</td>
-                            <td ><img style="    width: auto;
+    <title>Blaze cats</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <script src="static/js/FuncionUsd.js"></script>
+
+</head>
+
+<body class="sesion">
+    <header>
+        {% include 'nav.html' %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block content %}
+        <div class="tittle-carrito">
+            <h1>CARRITO DE COMPRAS</h1>
+        </div>
+        <table class="catalogo">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Detalle</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in carrito%}
+                <tr>
+                    <td>{{item.0}}</td>
+                    <td>{{item.1}}</td>
+                    <td><img style="    width: auto;
                                 height: 100px;
                                 object-fit: cover;
                                 border-radius: 10px 10px 0 0; justify-content: center;" src="{{item.2}}" alt=""></td>
-                            <td>{{item.3}}</td>
-                            <td>{{item.4}}</td>
-                            <td>{{item.5}}</td>
-                            <td>
-                                <a class="a-cat"  href="{% url 'dropitem' item.0 %}">Eliminar producto</a>
-                            </td>                      
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    <td>{{item.3}}</td>
+                    <td>{{item.4}}</td>
+                    <td>{{item.5}}</td>
+                    <td>
+                        <a class="a-cat" href="{% url 'dropitem' item.0 %}">Eliminar producto</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
 
 </body>
-{%  if not carrito %}
- <h2 style="width:100%; text-align: center; padding: 15px; ">Tu carrito esta vacio my friend!.</h2>
- {% else %}
-  <div class="b-comprar">
-    <a  href="{% url 'comprar' %}">Comprar</a>
-  </div> 
- {%endif%}
+{% if not carrito %}
+<h2 style="width:100%; text-align: center; padding: 15px; ">Tu carrito esta vacio my friend!.</h2>
+{% else %}
+<div class="b-comprar">
+    <a class="Botoncompra" href="{% url 'comprar' %}">Comprar</a>
+</div>
+{%endif%}
+
 </html>
 {%endblock%}
