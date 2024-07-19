@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="sesion">
+<body class="">
     <header>
         {% include 'nav.html' %}
         <meta charset="UTF-8">
@@ -45,7 +45,7 @@
                     <td>{{item.3}}</td>
                     <td>{{item.4}}</td>
                     <td>{{item.5}}</td>
-                    <td>
+                    <td class="boton-eliminar">
                         <a class="a-cat" href="{% url 'dropitem' item.0 %}">Eliminar producto</a>
                     </td>
                 </tr>
@@ -59,7 +59,7 @@
 <h2 style="width:100%; text-align: center; padding: 15px; ">Tu carrito esta vacio my friend!.</h2>
 {% else %}
 <div class="b-comprar">
-    <a class="Botoncompra" href="{% url 'comprar' %}">Comprar</a>
+    <a href="{% url 'comprar' %}" class="button_slide slide_right">Comprar</a>
 </div>
 {%endif%}
 
